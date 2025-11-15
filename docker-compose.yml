@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: maximalochka
+      POSTGRES_PASSWORD: MaximUlanov2005
+      POSTGRES_DB: maximalochka
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U maximalochka"]
+      interval: 5s
+      retries: 5
+      start_period: 5s
+    ports:
+      - 5432:5432
+  max-bot:
+    build: .
+    container_name: max-bot
+    env_file: .env
+    restart: always
+    depends_on:
+      - db
+    
+
+volumes:
+  pgdata:
+  redisdata:
