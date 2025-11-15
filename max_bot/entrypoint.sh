@@ -3,7 +3,8 @@
 python utils/wait_services.py
 
 # Инициализация миграций Aerich
-aerich init-db || true
+sleep 2
+aerich init-db
 aerich migrate
 aerich upgrade
 
