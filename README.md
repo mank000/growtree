@@ -91,5 +91,7 @@ docker-compose down
 - VK Education за возможность участия
 - MAX за отличный API и документацию
 
+## Ссылка
 
+https://max.ru/demo_test_1492_bot
 
